@@ -80,9 +80,14 @@ ul {
   float: left;
   margin: 2%;
   padding: 1%;
-  outline: #3B0B0B dotted thick;
-  transition: 0.75s;
+  outline: #3B0B0B solid thick;
+  transition: 0.50s;
   opacity: 1;
+}
+
+.pigTile p {
+  text-align: left;
+  margin-left: 8.2em;
 }
 
 .minBackgroundSneak {
