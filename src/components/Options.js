@@ -7,7 +7,7 @@ export default class Options extends React.Component {
 				<button onClick={this.props.toggleGreasedHogs}>Hide greasy bois</button>
 				&nbsp; &nbsp; &nbsp;
 	      <select onChange={this.props.sortHogs}>
-	      	<option selected disabled> Sort by </option>
+	      	<option disabled selected> Sort by </option>
 	      	<option value="name"> Name </option>
 	      	<option value="weight"> Weight </option>
 	      </select>

@@ -5,7 +5,7 @@ import Options from './Options'
 import Hog from './Hog'
 import hogs from '../porkers_data';
 
-class App extends Component {
+export default class App extends Component {
 
 	constructor(){
 		super()
@@ -25,20 +25,15 @@ class App extends Component {
 	}
 
 	compareFunctions = {
-		'name': this.nameSort,
-		'weight': this.weightSort
+		name: this.nameSort,
+		weight: this.weightSort
 	}
 
-	sortHogs = (e)=>{
-		console.log('sortHogs invoked')
-		this.setState({
-			hogs: this.state.hogs.sort(this.compareFunctions[e.target.value])
-		})
-	}
-
+	sortHogs = (e)=> this.setState({ hogs: this.state.hogs.sort(this.compareFunctions[e.target.value]) })
+	hideHog = (name)=> this.setState({ hogs: this.state.hogs.filter(hog => hog.name !== name ) })
 
 	toggleGreasedHogs = (e)=>{
-		if(e.target.innerText.startsWith('Hide')) {
+		if(e.target.innerText === 'Hide greasy bois') {
 			this.setState({ hogs: hogs.filter(hog=> !hog.greased ) })
 			e.target.innerText = 'Show greasy bois'
 		}
@@ -47,8 +42,6 @@ class App extends Component {
 			e.target.innerText = 'Hide greasy bois'
 		}
 	}
-
-	hideHog = (name)=> this.setState({ hogs: this.state.hogs.filter(hog => hog.name !== name ) })
 
   render() {
     return (
@@ -62,5 +55,3 @@ class App extends Component {
     )
   }
 }
-
-export default App;

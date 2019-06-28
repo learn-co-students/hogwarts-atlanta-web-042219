@@ -8,16 +8,17 @@ export default class Hog extends React.Component {
 	}
 
 	toggleInfo = ()=>{
+		console.log('invoked')
 		this.setState({ showInfo: !this.state.showInfo })
 	}
 
 	render() {
-		let src = require(`../hog-imgs/${this.props.hog.name.toLowerCase().replace(/\ /g, '_')}.jpg`)
+		let src = require(`../hog-imgs/${this.props.hog.name.toLowerCase().replace(/ /g, '_')}.jpg`)
 		return (
 			<div className="ui seven wide column pigTile">
 				<button onClick={(e)=>this.props.hideHog(this.props.hog.name)} style={{float: 'right', background: 'none', border: 'none'}}>X</button>
 				<h1>{this.props.hog.name}</h1>
-				<img draggable="false" src={src} onClick={this.toggleInfo} ></img>
+				<img draggable="false" src={src} alt={this.props.hog.name}  onClick={this.toggleInfo}></img>
 				{this.state.showInfo ? 
 					<p>
 						Specialty: {this.props.hog.specialty}<br/>
